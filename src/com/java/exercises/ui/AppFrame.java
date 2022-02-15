@@ -1,5 +1,7 @@
 package com.java.exercises.ui;
 
+import com.java.exercises.ui.modal.ModalPanel;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -18,6 +20,7 @@ public class AppFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(new Dimension(700, 450));
         setMinimumSize(new Dimension(700,450));
+        InterfaceHelpers.centerFrame(this);
 
         LabelPanel labelPanel = new LabelPanel();
         add(labelPanel, BorderLayout.PAGE_START);
@@ -32,6 +35,8 @@ public class AppFrame extends JFrame {
         add(imgPanel);
 
         JButton button = new JButton("Click  me to see resizable dialog");
+        ModalPanel modalPanel = new ModalPanel();
         add(button, BorderLayout.PAGE_END);
+        InterfaceHelpers.showModalDialog(button, modalPanel);
     }
 }
