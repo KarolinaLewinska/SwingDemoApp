@@ -1,22 +1,34 @@
 package com.java.exercises.ui.modal;
 
-import com.java.exercises.ui.InterfaceHelpers;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
-public class ModalPanel extends JFrame {
+public class ModalPanel extends JDialog {
     public ModalPanel() {
-        TitlePanel titlePanel = new TitlePanel();
-        add(titlePanel, BorderLayout.PAGE_START);
         setSize(300,150);
+        setPosition(this);
         setUndecorated(true);
-        InterfaceHelpers.centerFrame(this);
-        setAlwaysOnTop (true);
+        setModal(true);
+        JPanel mainPanel = new JPanel();
+        mainPanel.setSize(300,150);
+        mainPanel.setBackground(Color.WHITE);
+        TitlePanel titlePanel = new TitlePanel();
+        TextPanel textPanel = new TextPanel();
+        ButtonPanel buttonPanel = new ButtonPanel(this);
+        mainPanel.add(titlePanel, BorderLayout.PAGE_START);
+        mainPanel.add(textPanel, BorderLayout.CENTER);
+        mainPanel.add(buttonPanel, BorderLayout.PAGE_END);
+        add(mainPanel);
+    }
 
-        JButton button = new JButton();
-        add(button);
-        InterfaceHelpers.closeFrame(button, this);
+    public static void setPosition(JDialog dialog) {
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - dialog.getWidth()) / 2 + 50);
+        int y = (int) ((dimension.getHeight() - dialog.getHeight()) / 2);
+        dialog.setLocation(x, y);
     }
 }
