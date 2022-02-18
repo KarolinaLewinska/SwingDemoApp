@@ -2,7 +2,7 @@ package com.java.exercises.ui;
 
 import com.java.exercises.ui.modal.ModalPanel;
 
-import javax.swing.JButton;
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
@@ -23,20 +23,21 @@ public class AppFrame extends JFrame {
         setLocationRelativeTo(null);
 
         LabelPanel labelPanel = new LabelPanel();
+        labelPanel.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
         add(labelPanel, BorderLayout.PAGE_START);
 
+        JPanel imgPanel = new JPanel();
         PicturePanel javaImg = new PicturePanel(JAVA_IMG_URL);
         PicturePanel swingImg = new PicturePanel(SWING_IMG_URL);
-
-        JPanel imgPanel = new JPanel();
         imgPanel.setLayout(new GridLayout(1,2));
         imgPanel.add(javaImg);
         imgPanel.add(swingImg);
         add(imgPanel);
 
-        JButton button = new JButton("Click  me to see resizable dialog");
         ModalPanel modalPanel = new ModalPanel();
-        add(button, BorderLayout.PAGE_END);
-        InterfaceHelper.showModalDialog(button, modalPanel);
+        ButtonPanel buttonPanel = new ButtonPanel();
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 50, 0));
+        add(buttonPanel, BorderLayout.PAGE_END);
+        InterfaceHelper.showModalDialog(buttonPanel.button, modalPanel);
     }
 }

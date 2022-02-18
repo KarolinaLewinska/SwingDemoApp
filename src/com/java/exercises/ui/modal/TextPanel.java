@@ -6,7 +6,7 @@ import java.awt.Color;
 
 public class TextPanel extends JPanel {
     public TextPanel() {
-        JTextArea textArea = new JTextArea("oknjjnjbhbhbhh nkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+        JTextArea textArea = new JTextArea("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur gravida justo eget vestibulum congue. Sed rutrum bibendum fermentum. Morbi fermentum tellus id auctor venenatis. Fusce at dolor ex.");
         textArea.setEditable(false);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);

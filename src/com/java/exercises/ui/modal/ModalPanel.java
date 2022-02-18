@@ -13,12 +13,13 @@ public class ModalPanel extends JDialog {
         setPosition(this);
         setUndecorated(true);
         setModal(true);
-        JPanel mainPanel = new JPanel();
-        mainPanel.setSize(300,150);
-        mainPanel.setBackground(Color.WHITE);
+
         TitlePanel titlePanel = new TitlePanel();
         TextPanel textPanel = new TextPanel();
         ButtonPanel buttonPanel = new ButtonPanel(this);
+        JPanel mainPanel = new JPanel();
+        mainPanel.setSize(300,150);
+        mainPanel.setBackground(Color.WHITE);
         mainPanel.add(titlePanel, BorderLayout.PAGE_START);
         mainPanel.add(textPanel, BorderLayout.CENTER);
         mainPanel.add(buttonPanel, BorderLayout.PAGE_END);
@@ -27,7 +28,7 @@ public class ModalPanel extends JDialog {
 
     public static void setPosition(JDialog dialog) {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (int) ((dimension.getWidth() - dialog.getWidth()) / 2 + 50);
+        int x = (int) ((dimension.getWidth() - dialog.getWidth()) / 2 + 100);
         int y = (int) ((dimension.getHeight() - dialog.getHeight()) / 2);
         dialog.setLocation(x, y);
     }
