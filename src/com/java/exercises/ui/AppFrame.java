@@ -34,10 +34,11 @@ public class AppFrame extends JFrame {
         imgPanel.add(swingImg);
         add(imgPanel);
 
-        ModalPanel modalPanel = new ModalPanel();
         ButtonPanel buttonPanel = new ButtonPanel();
+        ModalPanel modalPanel = new ModalPanel(this);
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 50, 0));
         add(buttonPanel, BorderLayout.PAGE_END);
-        InterfaceHelper.showModalDialog(buttonPanel.button, modalPanel);
+
+        InterfaceHelper.showModalDialog(this, modalPanel, buttonPanel.button);
     }
 }
