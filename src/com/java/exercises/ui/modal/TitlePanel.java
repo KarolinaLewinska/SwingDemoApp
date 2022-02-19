@@ -7,6 +7,7 @@ import java.awt.Font;
 
 public class TitlePanel extends JPanel {
     String title;
+
     public TitlePanel(String title) {
         this.title = title;
         setBackground(Color.WHITE);

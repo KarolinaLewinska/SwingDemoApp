@@ -9,6 +9,7 @@ import java.awt.Dimension;
 public class TextPanel extends JPanel {
     private final int MAX_MODAL_WIDTH = 300;
     String text;
+
     public TextPanel(String text) {
         this.text = text;
         setBackground(Color.WHITE);
