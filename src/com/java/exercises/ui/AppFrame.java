@@ -1,5 +1,6 @@
 package com.java.exercises.ui;
 
+import com.java.exercises.helpers.InterfaceHelper;
 import com.java.exercises.ui.modal.ModalPanel;
 
 import javax.swing.BorderFactory;

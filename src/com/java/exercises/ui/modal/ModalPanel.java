@@ -32,8 +32,8 @@ public class ModalPanel extends JDialog {
 
     private static void setPosition(JDialog dialog) {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (int) ((dimension.getWidth() - dialog.getWidth()) / 2);
-        int y = (int) ((dimension.getHeight() - dialog.getHeight()) / 2 - 50);
+        int x = (int) ((dimension.getWidth() - dialog.getWidth()) / 2 - 30);
+        int y = (int) ((dimension.getHeight() - dialog.getHeight()) / 2 - 80);
         dialog.setLocation(x, y);
     }
 }

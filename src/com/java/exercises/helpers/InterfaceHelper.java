@@ -1,4 +1,4 @@
-package com.java.exercises.ui;
+package com.java.exercises.helpers;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
