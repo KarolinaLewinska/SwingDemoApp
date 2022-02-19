@@ -8,13 +8,17 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.Dimension;
 
 
 public class ButtonPanel extends JPanel {
     public ButtonPanel(JDialog modalPanel, JFrame frame) {
-        JButton button = new JButton("OK");
         setBackground(Color.WHITE);
-        setBorder(BorderFactory.createEmptyBorder(0, 200, 0, 10));
+        setBorder(BorderFactory.createEmptyBorder(0, 150, 10, 10));
+
+        JButton button = new JButton("OK");
+        button.setPreferredSize(new Dimension(60,20));
+        button.setBackground(Color.ORANGE);
         add(button);
         InterfaceHelper.closeFrame(frame, button, modalPanel);
     }

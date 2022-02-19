@@ -6,11 +6,13 @@ import java.awt.Color;
 import java.awt.Font;
 
 public class TitlePanel extends JPanel {
-    public TitlePanel() {
-        JLabel label = new JLabel("Modal dialog");
-        label.setFont((new Font("Arial", Font.BOLD, 12)));
+    String title;
+    public TitlePanel(String title) {
+        this.title = title;
+        setBackground(Color.WHITE);
+        JLabel label = new JLabel(title);
+        label.setFont((new Font("Arial", Font.BOLD, 14)));
         label.setForeground(Color.GRAY);
         add(label);
-        setBackground(Color.white);
     }
 }

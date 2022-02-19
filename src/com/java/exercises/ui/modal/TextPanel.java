@@ -1,17 +1,28 @@
 package com.java.exercises.ui.modal;
 
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import java.awt.Color;
+import java.awt.Dimension;
 
 public class TextPanel extends JPanel {
-    public TextPanel() {
-        JTextArea textArea = new JTextArea("Lorem ipsum");
-        textArea.setEditable(false);
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
+    private final int MAX_MODAL_WIDTH = 300;
+    String text;
+    public TextPanel(String text) {
+        this.text = text;
         setBackground(Color.WHITE);
         setForeground(Color.GRAY);
-        add(textArea);
+
+        JLabel label = new JLabel("<html>" + text + "</html>");
+        Dimension modalSize = label.getPreferredSize();
+        if (modalSize.width > MAX_MODAL_WIDTH) {
+            int linesOfText = (int) Math.ceil(((double) modalSize.width) / MAX_MODAL_WIDTH) + 1;
+            modalSize.width = MAX_MODAL_WIDTH;
+            modalSize.height *= linesOfText;
+            label.setPreferredSize(modalSize);
+        }
+        setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        add(label);
     }
 }
