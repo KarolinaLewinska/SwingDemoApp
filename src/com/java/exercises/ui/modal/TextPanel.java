@@ -16,14 +16,18 @@ public class TextPanel extends JPanel {
         setForeground(Color.GRAY);
 
         JLabel label = new JLabel("<html>" + text + "</html>");
-        Dimension modalSize = label.getPreferredSize();
-        if (modalSize.width > MAX_MODAL_WIDTH) {
-            int linesOfText = (int) Math.ceil(((double) modalSize.width) / MAX_MODAL_WIDTH) + 1;
-            modalSize.width = MAX_MODAL_WIDTH;
-            modalSize.height *= linesOfText;
-            label.setPreferredSize(modalSize);
-        }
+        Dimension labelPreferredSize = label.getPreferredSize();
+        label.setPreferredSize(setTextSize(labelPreferredSize, MAX_MODAL_WIDTH));
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         add(label);
+    }
+
+    private static Dimension setTextSize(Dimension textSize, int maxWidth) {
+        if (textSize.width > maxWidth) {
+            int linesOfText = (int) Math.ceil(((double) textSize.width) / maxWidth) + 1;
+            textSize.width = maxWidth;
+            textSize.height *= linesOfText;
+        }
+        return textSize;
     }
 }
