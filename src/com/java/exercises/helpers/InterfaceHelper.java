@@ -4,8 +4,8 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.Graphics;
 
 public class InterfaceHelper {
     public static void showModalDialog(JFrame frame, JDialog modal, JButton button) {
@@ -23,9 +23,14 @@ public class InterfaceHelper {
     }
 
     private static void setDimmedBackground(JFrame frame, boolean isDimmed) {
-        JComponent backgroundPanel = new JPanel();
-        backgroundPanel.setBackground(new Color(0,0,0,200));
-        frame.setGlassPane(backgroundPanel);
-        backgroundPanel.setVisible(isDimmed);
+        frame.setGlassPane(new JComponent() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.setColor(new Color(0, 0, 0, 200));
+                g.fillRect(0, 0, getWidth(), getHeight());
+            }
+        });
+        frame.getGlassPane().setVisible(isDimmed);
     }
 }
