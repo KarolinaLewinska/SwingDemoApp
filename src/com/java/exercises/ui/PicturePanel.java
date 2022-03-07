@@ -6,7 +6,6 @@ import javax.swing.JPanel;
 import java.awt.Image;
 import java.net.URL;
 
-
 public class PicturePanel extends JPanel {
     private static final int IMAGE_WIDTH = 300;
     private static final int IMAGE_HEIGHT = 200;

@@ -20,6 +20,7 @@ public class ButtonPanel extends JPanel {
         button.setPreferredSize(new Dimension(60,20));
         button.setBackground(Color.ORANGE);
         add(button);
+
         InterfaceHelper.closeFrame(frame, button, modalPanel);
     }
 }

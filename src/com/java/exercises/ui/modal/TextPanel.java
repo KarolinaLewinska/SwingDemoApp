@@ -22,7 +22,7 @@ public class TextPanel extends JPanel {
         add(label);
     }
 
-    private static Dimension setTextSize(Dimension textSize, int maxWidth) {
+    private Dimension setTextSize(Dimension textSize, int maxWidth) {
         if (textSize.width > maxWidth) {
             int linesOfText = (int) Math.ceil(((double) textSize.width) / maxWidth) + 1;
             textSize.width = maxWidth;
